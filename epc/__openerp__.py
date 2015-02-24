@@ -33,5 +33,6 @@
         'views/menu.xml',
         'views/respartner.xml',
         'views/resusers.xml',
+        'views/WS.xml',
     ],
 }
