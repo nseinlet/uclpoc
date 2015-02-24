@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+        <!-- Define a report -->
+        <report
+            id="report_activite"
+            model="epc.activiteinfo"
+            string="Course Report"
+            name="epc.report_activityinfo_view"
+            file="epc.report_partner"
+            report_type="qweb-pdf" />
+
+        <!-- define the report template -->
+        <template id="report_activityinfo_view">
+            <t t-foreach="docs" t-as="activity">
+                <div class="page">
+                    <div class="row">
+                        <!-- 12 divisé par le nombre de colonnes voulues -->
+                        <div class="col-xs-6">
+                            Code
+                        </div>
+                        <div class="col-xs-6">
+                            <span t-field="activity.code"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Complete name
+                        </div>
+                        <div class="col-xs-6">
+                            <span t-field="activity.intitulecomplet"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

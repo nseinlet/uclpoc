@@ -1,6 +1,7 @@
 from openerp.tests.common import TransactionCase, SingleTransactionCase
 from openerp.exceptions import Warning, ValidationError
 cache = {}
+from psycopg2 import IntegrityError
 
 class TestTeacher(SingleTransactionCase):
     
@@ -18,12 +19,9 @@ class TestTeacher(SingleTransactionCase):
             'langue': 'FR',
         })
         excpt=0
-        try:
+        with self.assertRaises(IntegrityError):
             cc2 = mod_cc.create({
                 'activity_id': acti,
                 'langue': 'FR',
             })
-        except Exception, e:
-            excpt = excpt + 1
-        self.assertEqual(excpt, 1)
         

@@ -35,5 +35,6 @@
         'views/respartner.xml',
         'views/resusers.xml',
         'views/WS.xml',
+        'reports/activiteinfo.xml',
     ],
 }
