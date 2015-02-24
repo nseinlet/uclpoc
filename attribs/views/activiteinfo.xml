@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <openerp>
+    <data>
+        <record model="ir.ui.view" id="activiteinfo_attrib_form_view">
+            <field name="name">activiteinfo.attribs</field>
+            <field name="model">epc.activiteinfo</field>
+            <field name="inherit_id" ref="epc.epc_activiteinfo_form"/>
+            <field name="arch" type="xml">
+                <page string='Informations générales' position="after">
+                    <page string="Enseignants">
+                        <field name="attribution_ids">
+                            <tree editable="bottom">
+                                <field name="personne_id"/>
+                                <field name="fonction"/>
+                                <field name="attrib_start"/>
+                                <field name="attrib_end"/>
+                                <field name="vol1"/>
+                                <field name="vol2"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

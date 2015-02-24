@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- List -->
+        <record model="ir.ui.view" id="epc_view_cahiercharge_tree">
+            <field name="name">epc.view.cahiercharge_tree</field>
+            <field name="model">epc.cahiercharge</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Cahier de charge">
+                    <field name="activity_id"/>
+                    <field name="langue"/>
+                    <field name="validite"/>
+                    <field name="competences"/>
+                    <field name="theme_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form -->
+        <record model="ir.ui.view" id="epc_cahiercharge_form">
+            <field name="name">epc.view.cahierchargeform</field>
+            <field name="model">epc.cahiercharge</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="Cahier de charge">
+                    <sheet>
+                        <group col="2">
+                            <field name="activity_id"/>
+                            <field name="langue"/>
+                            <field name="validite"/>
+                            <field name="theme_ids" widget="many2many_tags"/>
+                            <field name="competences"/>
+                            <field name="prerequis"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+            
+    </data>
+</openerp>

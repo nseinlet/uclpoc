@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_epc_entite,epc.entite,model_epc_entite,,1,1,1,1
+access_epc_activiteinfo_centrale,epc.activiteinfo,model_epc_activiteinfo,epc_centrale,1,1,1,1
+access_epc_activiteinfo_faculte,epc.activiteinfo,model_epc_activiteinfo,epc_faculte,1,1,1,1
+access_epc_activiteinfo_profs,epc.activiteinfo,model_epc_activiteinfo,epc_profs,1,1,1,1
+access_epc_activiteinfo_assists,epc.activiteinfo,model_epc_activiteinfo,epc_assists,1,1,1,1
+access_epc_theme,access_epc_theme,model_epc_theme,,1,1,1,1
+access_epc_cahiercharge,access_epc_cahiercharge,model_epc_cahiercharge,,1,1,1,1
+access_epc_activite,access_epc_activite,model_epc_activite,,1,1,1,1

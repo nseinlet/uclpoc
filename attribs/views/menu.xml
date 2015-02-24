@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Attributions -->
+        <record model="ir.actions.act_window" id="attribs_action_list_attribs">
+            <field name="name">Attributions</field>
+            <field name="res_model">attribs.attribs</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+<menuitem id="menu_ucl_attribs_list" parent="epc.menu_ucl_attribs" name="Attribution" sequence="10"
+    action="attribs_action_list_attribs"/>
+</data>
+</openerp>

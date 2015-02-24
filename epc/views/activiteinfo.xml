@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- List -->
+        <record model="ir.ui.view" id="epc_view_activiteinfo_tree">
+            <field name="name">epc.view.activiteinfo_tree</field>
+            <field name="model">epc.activiteinfo</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="activities info list">
+                    <field name="code"/>
+                    <field name="validite"/>
+                    <field name="intitulecomplet"/>
+                    <field name="type_activite"/>
+                    <field name="entity_id"/>
+                    <field name="poids"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form -->
+        <record model="ir.ui.view" id="epc_activiteinfo_form">
+            <field name="name">epc.view.activiteinfoform</field>
+            <field name="model">epc.activiteinfo</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="UCL Activity">
+                    <sheet>
+                        <group col="4">
+                            <field name="activity_id" required="True"/>
+                            <field name="name" required="True"/>
+                            <field name="intitulecomplet" required="True"/>
+                            <field name="sigle"/>
+                            <field name="cnum"/>
+                            <field name="subdivision"/>
+                            <field name="validite"/>
+                        </group>
+                        <notebook>
+                            <page string="Informations générales">
+                                <group col="4">
+                                    <field name="type_activite"/>
+                                    <field name="site"/>
+                                    <field name="validity_start"/>
+                                    <field name="validity_end"/>
+                                    <field name="active"/>
+                                    <field name="poids"/>
+                                    <field name="langue"/>
+                                </group>
+                                <separator string="Structure"/>
+                                <group col="4">
+                                    <field name="entity_id"/>
+                                    <field name="entity_attrib_id"/>
+                                </group>
+                                <separator string="Volumes"/>
+                                <group col="4">
+                                    <field name="vol1_total"/>
+                                    <field name="vol2_total"/>
+                                    <field name="vol1_q1"/>
+                                    <field name="vol2_q1"/>
+                                    <field name="vol1_q2"/>
+                                    <field name="vol2_q2"/>
+                                    <field name="vol1_coeff"/>
+                                    <field name="vol2_coeff"/>
+                                </group>
+                            </page>
+                            <page string="Cahier de charge">
+                                <group col="1">
+                                    <field name="cahiercharge_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Search -->
+        <record model="ir.ui.view" id="epc_view_activity_search_view">
+            <field name="name">epc.view.activite.search</field>
+            <field name="model">epc.activiteinfo</field>
+            <field name="arch" type="xml">
+                <search string="activites">
+                    <filter name="my_instances" domain="[('active','=',true)]"
+                        string="My active activities" icon="terp-partner"/>
+                    <field name="site"/>
+                    <field name="code"/>
+                    <field name="cnum"/>
+                    <field name="name"/>
+                    <field name="intitulecomplet"/>
+                    <field name="validite"/>
+                    <field name="subdivision"/>
+                    <field name="type_activite"/>
+                    <field name="entity_id" filter_domain="['|', ('entity_id', 'ilike', self), ('entity_id.parent_id', 'ilike', self)]" />
+                </search>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <openerp>
+    <data>
+        <record model="ir.ui.view" id="partner_pa_form_view">
+            <field name="name">partner.pa</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="title" position="after">
+                    <field name="is_personnelacademique"/>
+                    <field name="datenaissance"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

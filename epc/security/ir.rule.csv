@@ -1,0 +1,4 @@
+"id","active","domain_force","groups/id","name","model_id/id","perm_create","perm_unlink","perm_read","perm_write"
+"__export__.ir_rule_20","True","[('entity_id', 'child_of', user.entity_id.id)]","epc.epc_assists","Activites infos","attribs.model_epc_activiteinfo","False","False","False","True"
+"faculteuniquementlaleur","True","[('entity_id', 'child_of', user.entity_id.id), ('type_activite', 'in', ('PARTIM', 'CLASSE'))]","epc.epc_faculte","Activites infos","attribs.model_epc_activiteinfo","True","False","False","True"
+"centralepaspartim","True","['!', ('type_activite', 'in', ('PARTIM', 'CLASSE'))]","epc.epc_centrale","Activites infos","attribs.model_epc_activiteinfo","True","False","False","True"

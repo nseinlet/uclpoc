@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Activite -->
+        <record model="ir.actions.act_window" id="epc_action_list_activite">
+            <field name="name">Activities</field>
+            <field name="res_model">epc.activite</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- ActiviteInfo -->
+        <record model="ir.actions.act_window" id="epc_action_list_activiteinfo">
+            <field name="name">Activities Infos</field>
+            <field name="res_model">epc.activiteinfo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Personnel academique -->
+        <record model="ir.actions.act_window" id="epc_action_list_pa">
+            <field name="name">Personnel</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_personnelacademique','=',True)]</field>
+            <field name="context">{'is_personnelacademique': True,'default_is_personnelacademique': True}</field>
+            
+        </record>
+        
+        <!-- Entity -->
+        <record model="ir.actions.act_window" id="epc_action_list_entity">
+            <field name="name">Entities</field>
+            <field name="res_model">epc.entite</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.actions.act_window" id="epc_action_list_treeentities">
+            <field name="name">Entities</field>
+            <field name="res_model">epc.entite</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="field_parent">child_ids</field>
+            <field name="domain">[('parent_id','=',False)]</field>
+            <field name="view_id" ref="epc_entity_tree_view"/>
+        </record>
+        
+        <!-- Menu -->
+        <menuitem id="menu_ucl_root" name="EPC" sequence="10"/>
+        
+        <menuitem id="menu_ucl_acts" parent="menu_ucl_root" name="Activities" sequence="10"/>
+        
+        <menuitem id="menu_ucl_activiteinfo_list" parent="menu_ucl_acts" name="Activity List" sequence="100"
+            action="epc_action_list_activiteinfo"/>
+            
+        <menuitem id="menu_ucl_attribs" parent="menu_ucl_root" name="Attributions" sequence="15"/>
+        
+        <menuitem id="menu_ucl_pa_list" parent="menu_ucl_attribs" name="Personnel" sequence="100"
+            action="epc_action_list_pa"/>
+            
+        <menuitem id="menu_ucl_params" parent="menu_ucl_root" name="Parametres" sequence="100"/>
+        
+        <menuitem id="menu_ucl_entites_list" parent="menu_ucl_params" name="Entity List" sequence="100"
+            action="epc_action_list_entity"/>
+        <menuitem id="menu_ucl_entites_tree" parent="menu_ucl_params" name="Entity Tree" sequence="110"
+            action="epc_action_list_treeentities"/>
+
+    </data>
+</openerp>

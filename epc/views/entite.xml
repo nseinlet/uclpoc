@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record model="ir.ui.view" id="epc_entite_form">
+            <field name="name">epc.view.entiteform</field>
+            <field name="model">epc.entite</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="UCL Entity form">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="parent_id" attrs="{'required': [('name', '!=', 'UCL')], 'invisible': [('name', '=', 'UCL')]}"/>
+                        </group>
+                        <group col="4">
+                            <field name="validity_start"/>
+                            <field name="validity_end"/>
+                        </group>
+                        <notebook>
+                            <page string="Cours en charge">
+                                    <field name="activites_charge_ids">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="intitulecomplet"/>
+                                        </tree>
+                                    </field>
+                            </page>
+                            <page string="Cours attribués">
+                                    <field name="activites_attrib_ids">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="intitulecomplet"/>
+                                        </tree>
+                                    </field>
+                            </page>
+                            
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <!-- List -->
+        <record model="ir.ui.view" id="epc_view_entity_tree">
+            <field name="name">epc.view.entite_tree</field>
+            <field name="model">epc.entite</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Entities list">
+                    <field name="name"/>
+                    <field name="validity_start"/>
+                    <field name="validity_end"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record model="ir.ui.view" id="epc_entity_tree_view">
+            <field name="name">epc.view.entity_tree</field>
+            <field name="model">epc.entite</field>
+            <field name="field_parent">child_ids</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Entity list">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- open tmps from tree -->
+        <record id="epc_fromencharge_tree" model="ir.actions.act_window">
+            <field name="name">Activites</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">epc.activiteinfo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'entity_id':active_id, 'search_default_entity_id':active_id}</field>
+        </record>
+        <record id="ir_product_category_open" model="ir.values">
+            <field eval="'tree_but_open'" name="key2"/>
+            <field eval="'epc.entite'" name="model"/>
+            <field name="name">Activités en charge</field>
+            <field eval="'ir.actions.act_window,%d'%epc_fromencharge_tree" name="value"/>
+        </record>
+        
+    </data>
+</openerp>
