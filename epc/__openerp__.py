@@ -26,7 +26,6 @@
     'data': [
         'security/res.groups.csv',
         'security/ir.model.access.csv',
-        'security/ir.rule.csv',
         'views/entite.xml',
         'views/cahiercharge.xml',
         'views/activite.xml',

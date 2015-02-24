@@ -86,6 +86,10 @@
                 <search string="activites">
                     <filter name="my_instances" domain="[('active','=',true)]"
                         string="My active activities" icon="terp-partner"/>
+                    <group string="Group By">
+                        <filter name="group_by_validite" string="validite"
+                                context="{'group_by': 'validite'}"/>
+                    </group>
                     <field name="site"/>
                     <field name="code"/>
                     <field name="cnum"/>
