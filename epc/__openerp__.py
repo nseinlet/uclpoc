@@ -29,6 +29,7 @@
         'views/entite.xml',
         'views/cahiercharge.xml',
         'views/activite.xml',
+        'views/modifactivite.xml',
         'views/activiteinfo.xml',
         'views/menu.xml',
         'views/respartner.xml',

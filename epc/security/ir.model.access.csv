@@ -7,3 +7,4 @@ access_epc_activiteinfo_assists,epc.activiteinfo,model_epc_activiteinfo,epc_assi
 access_epc_theme,access_epc_theme,model_epc_theme,,1,1,1,1
 access_epc_cahiercharge,access_epc_cahiercharge,model_epc_cahiercharge,,1,1,1,1
 access_epc_activite,access_epc_activite,model_epc_activite,,1,1,1,1
+access_epc_modifactivite,access_epc_modifactivite,model_epc_modifactivite,,1,1,1,0

@@ -36,6 +36,7 @@ class ActiviteInfo(models.Model):
     activity_id = fields.Many2one('epc.activite',string="Activite")
     ens_debut = fields.Integer(related=('activity_id', 'ens_debut'))
     ens_fin = fields.Integer(related=('activity_id', 'ens_fin'))
+    demandemodif_ids = fields.One2many('epc.modifactivite', 'activity_id')
     
     @api.constrains('vol1_total')
     def _check_total_q1(self):
@@ -59,5 +60,35 @@ class ActiviteInfo(models.Model):
     def write(self, vals):
         write_res = super(ActiviteInfo, self).write(vals)
         return write_res
+        
+    @api.multi
+    def create_proposal(self):
+        modif_mod = self.env['epc.modifactivite']
+        mod = modif_mod.create({
+            'activity_id': self.id,
+            'vol1_total': self.vol1_total,
+            'vol1_q1': self.vol1_q1,
+            'vol1_q2': self.vol1_q2,
+            'vol1_coeff': self.vol1_coeff,
+            'vol2_total': self.vol2_total,
+            'vol2_q1': self.vol2_q1,
+            'vol2_q2': self.vol2_q2,
+            'vol2_coeff': self.vol2_coeff,
+        })
+        
+        view = self.env.ref('epc.epc_modifactivite_wizard')
+
+        return {
+            'name': 'Proposition de modif',
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'epc.modifactivite',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            #'target': 'new',
+            'res_id': mod.id,
+            'context': self.env.context,
+        }
         
         

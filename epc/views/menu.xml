@@ -9,6 +9,14 @@
             <field name="view_mode">tree,form</field>
         </record>
         
+        <!-- Modif Activite -->
+        <record model="ir.actions.act_window" id="epc_action_list_modifactivite">
+            <field name="name">Modifs activities</field>
+            <field name="res_model">epc.modifactivite</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
         <!-- ActiviteInfo -->
         <record model="ir.actions.act_window" id="epc_action_list_activiteinfo">
             <field name="name">Activities Infos</field>
@@ -52,6 +60,8 @@
         
         <menuitem id="menu_ucl_activiteinfo_list" parent="menu_ucl_acts" name="Activity List" sequence="100"
             action="epc_action_list_activiteinfo"/>
+        <menuitem id="menu_ucl_modifactivite_list" parent="menu_ucl_acts" name="Modifs activites" sequence="110"
+            action="epc_action_list_modifactivite"/>
             
         <menuitem id="menu_ucl_attribs" parent="menu_ucl_root" name="Attributions" sequence="15"/>
         
