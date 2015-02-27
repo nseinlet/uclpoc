@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data>
+
+<template id="web_ucl.assets_backend" inherit_id="web.assets_backend" name="UCL Backend Assets">
+    <xpath expr="." position="inside">
+        <script type="text/javascript" src="/web_ucl/static/src/js/chrome.js"></script>
+    </xpath>
+</template>
+
+<template id="web_ucl.menu" inherit_id="web.menu" name="UCL Web Menu">
+    <xpath expr="//ul[hasclass('oe_application_menu_placeholder')]/*[1]" position="before">
+        <li>
+            <a href="javascript:void(0)" id="leftbar-toggle" class="oe_menu_toggler">
+                <span class="oe_menu_text">
+                    <i class="fa fa-bars"/>
+                </span>
+            </a>
+        </li>
+    </xpath>
+</template>
+
+    </data>
+
+</openerp>
